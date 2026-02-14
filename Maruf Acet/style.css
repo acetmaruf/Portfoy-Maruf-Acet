@@ -330,9 +330,6 @@ transition: 0.3s ease-in-out;
     width: 50px;
  }
 
-
-
-
  /* EDUCATİON END*/
 
 
@@ -342,7 +339,7 @@ transition: 0.3s ease-in-out;
     color: #000000;
  }
   .services h2{
-    color: #F7F7F7;
+    color: white;
     margin-bottom: 5rem;
   }
    .services-container{
@@ -373,17 +370,12 @@ transition: 0.3s ease-in-out;
         justify-content: left;
         align-items: baseline;
         padding: 5rem 5rem;
-
-
-
     }
 
     .services-info h4{
         font-size: 1.6rem;
         font-weight: 800;
         line-height: 2;
-
-
     }
     .services-info p{
         font-size: 1.6rem;
