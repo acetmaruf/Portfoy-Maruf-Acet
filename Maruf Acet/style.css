@@ -76,7 +76,7 @@ transition: 0.3s ease-in-out;
 
 }
 .navbar a:hover,
-.navbara a:active{
+.navbar a:active{
     color:var(--main--color);
     border-bottom: 3px solid var(--main--color);
 }
@@ -333,57 +333,110 @@ transition: 0.3s ease-in-out;
  /* EDUCATİON END*/
 
 
- /* SERVİCES START*/
- .services{
-    background-color: #000000;
-    color: #000000;
- }
-  .services h2{
-    color: white;
-    margin-bottom: 5rem;
-  }
-   .services-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 2.5rem;
-   }
-    .services-box {
-        background-color: var(--main--color);
-        height: 300px;
-        border-radius: 3rem;
-        border: 5 px solid transparent;
-        cursor: pointer;
-        transition: 0.4s ease-in-out; 
-    }
-    .services-box:hover{
-        background-color: #F7F7F7;
-        color: #000000;
-        border: 5 px solid var(--main--color);
-        transform: scale(1.03);
-    }
-    .services-box .services-info{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        max-height: 200px;
-        justify-content: left;
-        align-items: baseline;
-        padding: 5rem 5rem;
-    }
+/* SERVICES START */
 
-    .services-info h4{
-        font-size: 1.6rem;
-        font-weight: 800;
-        line-height: 2;
-    }
-    .services-info p{
-        font-size: 1.6rem;
-        font-weight: 600;
-        max-height: 100px;
-        line-height: 1.7;
-        margin: auto;
-    }
+.services{
+   background-color: #000;
+   color: #fff;
+   padding: 8rem 10%;
+}
 
- /* SERVİCES END*/
+.services-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+   gap: 3rem;
+}
+
+.service-box{
+   background: #111;
+   padding: 4rem;
+   border-radius: 20px;
+   transition: 0.4s ease;
+   border: 2px solid transparent;
+}
+
+.service-box:hover{
+   transform: translateY(-10px);
+   border: 2px solid #f5a623;
+   box-shadow: 0 0 40px #f5a623;
+}
+
+.service-info h4{
+   font-size: 22px;
+   margin-bottom: 15px;
+   color: #f5a623;
+}
+
+.service-info p{
+   font-size: 16px;
+   line-height: 1.7;
+   color: #ccc;
+}
+
+/* SERVICES END */
+/* CONTACT START */
+.contact{
+    background: #000;
+    color: #fff;
+    padding: 8rem 10%;
+    text-align: center;
+}
+
+.contact .heading span{
+    color: #f5a623;
+}
+
+.contact form{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.input-group{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.input-group input{
+    flex: 1;
+}
+
+.contact input,
+.contact textarea{
+    width: 100%;
+    padding: 1.5rem;
+    background: #111;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus{
+    border-color: #f5a623;
+    box-shadow: 0 0 20px #f5a623;
+    outline: none;
+}
+
+.contact-btn{
+    margin-top: 2rem;
+    padding: 1.2rem 3rem;
+    background: #f5a623;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover{
+    box-shadow: 0 0 30px #f5a623;
+    transform: translateY(-5px);
+}
+
+/* CONTACT END */
+
 
