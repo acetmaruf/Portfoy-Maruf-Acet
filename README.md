@@ -3,7 +3,7 @@
 Bu proje, kendimi ve geliştirdiğim çalışmaları tanıtmak amacıyla oluşturduğum **kişisel portföy web sitesidir**.  
 Modern, sade ve kullanıcı odaklı bir tasarım anlayışıyla geliştirilmiştir.
 
----
+--
 
 ## 🚀 Özellikler
 
@@ -28,6 +28,6 @@ Modern, sade ve kullanıcı odaklı bir tasarım anlayışıyla geliştirilmişt
 
 > Proje frontend ağırlıklı olup, ileride backend entegrasyonu planlanmaktadır.
 
----
+--
 
 
