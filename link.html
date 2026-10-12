@@ -12,7 +12,7 @@
 <link rel="icon" href="medya/maruf-acet-avatar.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="medya/link-arka.jpg">
 <link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --lacivert: #141A2E;
@@ -23,7 +23,7 @@
     --cam: rgba(16, 22, 40, .52);
     --cam-cizgi: rgba(241, 235, 221, .14);
     --soluk: rgba(241, 235, 221, .66);
-    --serif: 'Zodiak', Georgia, serif;
+    --serif: 'Clash Display', 'General Sans', system-ui, sans-serif;
     --sans: 'General Sans', system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -69,23 +69,51 @@
     background: radial-gradient(120% 80% at 50% 40%, rgba(20, 26, 46, .82), rgba(9, 12, 22, .97));
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     cursor: pointer;
-    transition: opacity .7s ease, visibility .7s, backdrop-filter .7s;
+    transition: opacity .7s .35s ease, visibility .7s .35s, backdrop-filter .7s .35s;
   }
   .perde.acildi { opacity: 0; visibility: hidden; backdrop-filter: blur(0); }
-  .perde svg { width: 92px; height: 68px; margin: 0 auto 26px; overflow: visible; }
-  .perde path { stroke-dasharray: 1300; stroke-dashoffset: 1300; animation: ciz 1.6s .2s cubic-bezier(.6, 0, .2, 1) forwards; }
-  .perde rect { transform: scaleX(0); transform-origin: left; animation: cek .5s 1.5s ease-out forwards; }
-  @keyframes ciz { to { stroke-dashoffset: 0; } }
-  @keyframes cek { to { transform: scaleX(1); } }
-  .perde p {
-    margin: 0; font-size: 15px; color: var(--soluk);
-    opacity: 0; animation: belir .8s 1.9s ease forwards;
+  .perde-ic { display: grid; justify-items: center; }
+  .muhur {
+    position: relative; width: 168px; height: 168px; margin-bottom: 26px;
+    animation: bas .9s .25s cubic-bezier(.3, 1.4, .5, 1) both;
+    transition: transform .3s ease;
   }
-  .perde p b { color: var(--krem); font-weight: 500; }
-  .perde small { display: block; margin-top: 8px; font-size: 12.5px; color: rgba(241, 235, 221, .42); opacity: 0; animation: belir .8s 2.2s ease forwards; }
+  .perde:hover .muhur { transform: translateY(-3px) rotate(-2deg); }
+  .muhur::before {
+    content: ""; position: absolute; inset: 12px 8px 0; border-radius: 50%;
+    background: rgba(0, 0, 0, .55); filter: blur(14px); transform: translateY(10px);
+    transition: opacity .4s;
+  }
+  .yarim { position: absolute; inset: 0; transition: transform .75s cubic-bezier(.3, .6, .3, 1), opacity .75s ease; }
+  .yarim svg { width: 100%; height: 100%; display: block; }
+  .sol { clip-path: polygon(0 0, 52% 0, 46% 17%, 56% 31%, 44% 48%, 55% 63%, 46% 80%, 53% 100%, 0 100%); }
+  .sag { clip-path: polygon(52% 0, 100% 0, 100% 100%, 53% 100%, 46% 80%, 55% 63%, 44% 48%, 56% 31%, 46% 17%); }
+  .parilti {
+    position: absolute; inset: 9px; border-radius: 50%; overflow: hidden; pointer-events: none;
+  }
+  .parilti::after {
+    content: ""; position: absolute; top: -20%; bottom: -20%; left: -70%; width: 45%;
+    background: linear-gradient(100deg, transparent, rgba(255, 244, 214, .55), transparent);
+    transform: skewX(-20deg); animation: isilti 4.2s 1.6s ease-in-out infinite;
+  }
+  @keyframes isilti { 0%, 62% { left: -70%; } 100% { left: 140%; } }
+  @keyframes bas {
+    0% { opacity: 0; transform: scale(1.7) rotate(-14deg); }
+    60% { opacity: 1; }
+    100% { opacity: 1; transform: scale(1) rotate(-6deg); }
+  }
+  .kirildi .muhur { animation: none; transform: rotate(-6deg); }
+  .kirildi .muhur::before, .kirildi .parilti { opacity: 0; }
+  .kirildi .sol { transform: translate(-58px, 46px) rotate(-32deg); opacity: 0; }
+  .kirildi .sag { transform: translate(58px, 52px) rotate(28deg); opacity: 0; }
+  .davet { margin: 0; font: 500 26px/1.2 var(--serif); letter-spacing: -.01em; opacity: 0; animation: belir .8s 1s ease forwards; }
+  .ipucu {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
+    font-size: 13px; color: rgba(241, 235, 221, .5); opacity: 0; animation: belir .8s 1.3s ease forwards;
+  }
+  .ipucu svg { width: 15px; height: 15px; color: var(--altin); }
   @keyframes belir { to { opacity: 1; } }
-  .nabiz { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--altin); margin-right: 9px; vertical-align: 1px; animation: nabiz 1.6s ease-in-out infinite; }
-  @keyframes nabiz { 50% { box-shadow: 0 0 0 7px rgba(198, 154, 75, 0); background: var(--altin-acik); } 0% { box-shadow: 0 0 0 0 rgba(198, 154, 75, .55); } }
+  .kirildi .davet, .kirildi .ipucu { opacity: 0 !important; transition: opacity .3s; animation: none; }
 
   canvas#patlama { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 60; pointer-events: none; }
 
@@ -128,13 +156,11 @@
     background: var(--lacivert); display: grid; place-items: center;
   }
   .avatar svg { width: 54px; height: 40px; }
-  .profil h1 { font: 500 38px/1.05 var(--serif); margin: 0 0 10px; letter-spacing: -.015em; }
+  .profil h1 { font: 600 40px/1.05 var(--serif); margin: 0 0 10px; letter-spacing: -.01em; }
   .rol { height: 24px; font-size: 15.5px; color: var(--soluk); margin: 0; }
   .rol span { color: var(--krem); }
   .rol i { display: inline-block; width: 1.5px; height: 1.05em; background: var(--altin); margin-left: 2px; vertical-align: -2px; animation: imlec 1s steps(1) infinite; }
   @keyframes imlec { 50% { opacity: 0; } }
-  .konum { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 13px; color: var(--soluk); }
-  .konum svg { width: 14px; height: 14px; color: var(--altin); }
 
   /* Cam yüzey ortak */
   .cam {
@@ -230,7 +256,7 @@
   .sosyal svg { width: 20px; height: 20px; }
 
   .teklif { margin-top: 28px; padding: 20px; border-radius: 18px; text-align: center; }
-  .teklif h2 { font: 500 21px/1.25 var(--serif); margin: 0 0 6px; }
+  .teklif h2 { font: 600 21px/1.25 var(--serif); margin: 0 0 6px; }
   .teklif p { margin: 0 auto 14px; max-width: 34ch; color: var(--soluk); font-size: 14.5px; }
   .teklif a { display: inline-block; padding: 11px 22px; border-radius: 999px; background: var(--krem); color: var(--lacivert); font-weight: 600; font-size: 15px; transition: background .2s, transform .2s; }
   .teklif a:hover { background: var(--altin-acik); transform: translateY(-2px); }
@@ -255,11 +281,15 @@
 <div class="gren" aria-hidden="true"></div>
 <canvas id="patlama" aria-hidden="true"></canvas>
 
-<div class="perde" id="perde" role="button" tabindex="0" aria-label="Sayfaya gir, müzik başlar">
-  <div>
-    <svg viewBox="250 290 500 370" aria-hidden="true"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke="#F1EBDD" stroke-width="26" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="502" width="150" height="26" fill="#C69A4B"/></svg>
-    <p><span class="nabiz"></span><b>Girmek için dokun</b></p>
-    <small>Sesi aç, içeride müzik var</small>
+<div class="perde" id="perde" role="button" tabindex="0" aria-label="Mührü kır ve sayfaya gir, müzik başlar">
+  <div class="perde-ic">
+    <div class="muhur" id="muhur" aria-hidden="true">
+      <div class="yarim sol"><svg viewBox="0 0 160 160"><defs><radialGradient id="mum" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#EDCF92"/><stop offset=".5" stop-color="#C69A4B"/><stop offset="1" stop-color="#7E5822"/></radialGradient></defs><path d="M153.7 71.5 Q152.4 80.0 150.7 87.9 Q149.1 95.8 148.5 104.2 Q147.9 112.7 141.4 118.2 Q134.8 123.7 130.6 130.9 Q126.3 138.1 119.0 141.8 Q111.6 145.6 103.6 146.9 Q95.6 148.3 87.8 151.2 Q80.0 154.1 72.2 151.1 Q64.5 148.1 56.3 147.1 Q48.2 146.1 42.2 140.5 Q36.3 134.8 30.6 129.3 Q25.0 123.8 19.5 117.8 Q13.9 111.8 9.5 104.5 Q5.0 97.1 7.2 88.6 Q9.4 80.0 9.8 72.0 Q10.3 64.1 11.3 55.7 Q12.3 47.4 15.6 39.4 Q19.0 31.3 26.2 26.5 Q33.4 21.6 40.9 17.9 Q48.3 14.2 55.4 8.9 Q62.6 3.7 71.3 6.9 Q80.0 10.1 88.6 7.4 Q97.2 4.7 104.2 9.9 Q111.3 15.0 117.7 19.8 Q124.1 24.6 129.7 30.3 Q135.2 36.0 140.1 42.3 Q145.1 48.6 150.0 55.8 Q154.9 62.9 153.7 71.5Z" fill="url(#mum)"/><circle cx="80" cy="80" r="55" fill="none" stroke="#8C6428" stroke-width="2.4" opacity=".75"/><circle cx="80.8" cy="81" r="55" fill="none" stroke="#F3DCA6" stroke-width="1" opacity=".55"/><g transform="translate(80 82) scale(.118) translate(-500 -480)"><g stroke="#F6E2B0" fill="#F6E2B0" opacity=".7" transform="translate(9 9)"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g><g stroke="#6E4C1C" fill="#6E4C1C" transform="translate(-6 -6)"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g><g stroke="#A57936" fill="#A57936"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g></g></svg></div>
+      <div class="yarim sag"><svg viewBox="0 0 160 160"><path d="M153.7 71.5 Q152.4 80.0 150.7 87.9 Q149.1 95.8 148.5 104.2 Q147.9 112.7 141.4 118.2 Q134.8 123.7 130.6 130.9 Q126.3 138.1 119.0 141.8 Q111.6 145.6 103.6 146.9 Q95.6 148.3 87.8 151.2 Q80.0 154.1 72.2 151.1 Q64.5 148.1 56.3 147.1 Q48.2 146.1 42.2 140.5 Q36.3 134.8 30.6 129.3 Q25.0 123.8 19.5 117.8 Q13.9 111.8 9.5 104.5 Q5.0 97.1 7.2 88.6 Q9.4 80.0 9.8 72.0 Q10.3 64.1 11.3 55.7 Q12.3 47.4 15.6 39.4 Q19.0 31.3 26.2 26.5 Q33.4 21.6 40.9 17.9 Q48.3 14.2 55.4 8.9 Q62.6 3.7 71.3 6.9 Q80.0 10.1 88.6 7.4 Q97.2 4.7 104.2 9.9 Q111.3 15.0 117.7 19.8 Q124.1 24.6 129.7 30.3 Q135.2 36.0 140.1 42.3 Q145.1 48.6 150.0 55.8 Q154.9 62.9 153.7 71.5Z" fill="url(#mum)"/><circle cx="80" cy="80" r="55" fill="none" stroke="#8C6428" stroke-width="2.4" opacity=".75"/><circle cx="80.8" cy="81" r="55" fill="none" stroke="#F3DCA6" stroke-width="1" opacity=".55"/><g transform="translate(80 82) scale(.118) translate(-500 -480)"><g stroke="#F6E2B0" fill="#F6E2B0" opacity=".7" transform="translate(9 9)"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g><g stroke="#6E4C1C" fill="#6E4C1C" transform="translate(-6 -6)"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g><g stroke="#A57936" fill="#A57936"><path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640" fill="none" stroke-width="40" stroke-linejoin="miter" stroke-miterlimit="12"/><rect x="548" y="496" width="150" height="40"/></g></g></svg></div>
+      <div class="parilti"></div>
+    </div>
+    <p class="davet">Mührü kır</p>
+    <span class="ipucu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z" fill="currentColor" stroke="none"/><path d="M15.5 9a4 4 0 0 1 0 6M18.3 6.5a7.5 7.5 0 0 1 0 11"/></svg>içeride müzik çalıyor</span>
   </div>
 </div>
 
@@ -272,7 +302,6 @@
       </div></div>
       <h1>Maruf Acet</h1>
       <p class="rol"><span id="rol">Clopify'ın kurucusu</span><i></i></p>
-      <div class="konum"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>İstanbul</div>
     </header>
 
     <section class="calar cam" id="calar" aria-label="Müzik çalar">
@@ -291,9 +320,9 @@
       </div>
     </section>
 
-    <a class="baglanti altin-kart" href="https://wa.me/905456074673?text=Merhaba%20Maruf%2C%20bir%20i%C5%9Fim%20var.">
-      <span class="ikon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span>
-      <span class="yazi"><b>WhatsApp'tan yaz</b><small>Bir işin varsa doğrudan bana ulaşır</small></span>
+    <a class="baglanti altin-kart" href="mailto:marufacet@clopify.com">
+      <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg></span>
+      <span class="yazi"><b>Bana yaz</b><small>marufacet@clopify.com</small></span>
       <svg class="ok" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
     </a>
 
@@ -324,14 +353,13 @@
     <nav class="sosyal" aria-label="Sosyal hesaplar">
       <a class="cam" href="https://www.linkedin.com/in/acetmaruf" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4V9.5Z"/></svg></a>
       <a class="cam" href="https://github.com/acetmaruf" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .6 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg></a>
-      <a class="cam" href="https://www.instagram.com/clopify.tr" aria-label="Clopify Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
-      <a class="cam" href="mailto:iletisim@clopify.com" aria-label="E-posta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg></a>
+      <a class="cam" href="https://www.instagram.com/acetmaruf" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
     </nav>
 
     <section class="teklif cam">
       <h2>Sen de böyle bir sayfa ister misin?</h2>
       <p>Biyografine koyacağın, tüm bağlantılarını tek yerde toplayan, sana özel bir sayfa.</p>
-      <a href="https://wa.me/905456074673?text=Merhaba%2C%20maruf-acet.vercel.app%2Flink%20gibi%20bir%20sayfa%20istiyorum.">Bana da yap</a>
+      <a href="mailto:marufacet@clopify.com?subject=Bana%20da%20b%C3%B6yle%20bir%20sayfa">Bana da yap</a>
     </section>
 
     <p class="dip">
@@ -438,10 +466,11 @@
     if (girdi) return; girdi = true;
     const x = e && e.clientX ? e.clientX : innerWidth / 2;
     const y = e && e.clientY ? e.clientY : innerHeight / 2;
-    perde.classList.add('acildi');
+    perde.classList.add('kirildi', 'acildi');
     document.body.classList.remove('kilitli');
-    sahne.classList.add('girdi');
-    if (!azHareket) patlat(x, y);
+    setTimeout(() => sahne.classList.add('girdi'), azHareket ? 0 : 380);
+    const m = document.getElementById('muhur').getBoundingClientRect();
+    if (!azHareket) patlat(m.left + m.width / 2, m.top + m.height / 2);
     yavasBasla();
   }
   perde.addEventListener('click', gir);
