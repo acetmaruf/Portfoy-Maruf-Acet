@@ -12,7 +12,9 @@
 <link rel="icon" href="medya/maruf-acet-avatar.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="medya/link-arka.jpg">
 <link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
 <style>
   :root {
     --lacivert: #141A2E;
@@ -23,7 +25,7 @@
     --cam: rgba(16, 22, 40, .52);
     --cam-cizgi: rgba(241, 235, 221, .14);
     --soluk: rgba(241, 235, 221, .66);
-    --serif: 'Clash Display', 'General Sans', system-ui, sans-serif;
+    --serif: 'Syne', 'General Sans', system-ui, sans-serif;
     --sans: 'General Sans', system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -149,7 +151,7 @@
     background: var(--lacivert); display: grid; place-items: center;
   }
   .avatar svg { width: 54px; height: 40px; }
-  .profil h1 { font: 600 40px/1.05 var(--serif); margin: 0 0 10px; letter-spacing: -.01em; }
+  .profil h1 { font: 700 40px/1.1 var(--serif); margin: 0 0 10px; letter-spacing: -.01em; }
   .rol { height: 24px; font-size: 15.5px; color: var(--soluk); margin: 0; }
   .rol span { color: var(--krem); }
   .rol i { display: inline-block; width: 1.5px; height: 1.05em; background: var(--altin); margin-left: 2px; vertical-align: -2px; animation: imlec 1s steps(1) infinite; }
