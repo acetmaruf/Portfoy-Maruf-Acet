@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <rect width="1000" height="1000" fill="#141A2E"/>
+  <!-- monogram only, sized to survive YouTube's circular crop -->
+  <path d="M 270 640 L 385 320 L 500 640 L 615 320 L 730 640"
+        fill="none" stroke="#F1EBDD" stroke-width="15"
+        stroke-linejoin="miter" stroke-miterlimit="12" stroke-linecap="butt"/>
+  <rect x="548" y="508" width="150" height="15" fill="#C69A4B"/>
+</svg>

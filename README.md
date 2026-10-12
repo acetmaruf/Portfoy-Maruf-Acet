@@ -1,33 +1,12 @@
-# 🌐 Kişisel Portföy Web Sitesi
+# Maruf Acet — portföy
 
-Bu proje, kendimi ve geliştirdiğim çalışmaları tanıtmak amacıyla oluşturduğum **kişisel portföy web sitesidir**.  
-Modern, sade ve kullanıcı odaklı bir tasarım anlayışıyla geliştirilmiştir.
+Kişisel portföy sitem. Clopify, Craftoon, Kasaba Berlin ve Craftoon için hazırladığım örnek siteler.
 
---
+- Statik HTML + CSS, framework yok
+- Yazı karakterleri: Zodiak ve General Sans (Fontshare)
+- Videolar görünür olunca oynar, ekrandan çıkınca durur (IntersectionObserver)
+- Kişisel marka renkleri: lacivert `#141A2E`, krem `#F1EBDD`, altın `#C69A4B`
 
-## 🚀 Özellikler
+Eski öğrenci portföyüm `Maruf Acet/` klasöründe duruyor.
 
-- Modern ve responsive (mobil uyumlu) tasarım
-- Ana sayfa (Home) bölümü
-- Navbar ve sayfa içi yönlendirmeler
-- Sosyal medya ikonları (Instagram, GitHub, Facebook)
-- CV ve iletişim butonları
-- JavaScript ile etkileşimli yapı
-- Temiz ve okunabilir kod yapısı
-- CSS Reset ve özel stil sistemi
-
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-- **HTML5**
-- **CSS3**
-- **JavaScript (ES6)**
-- **Google Fonts**
-- **Boxicons**
-
-> Proje frontend ağırlıklı olup, ileride backend entegrasyonu planlanmaktadır.
-
---
-
-
+İletişim: iletisim@clopify.com · [LinkedIn](https://www.linkedin.com/in/acetmaruf)
